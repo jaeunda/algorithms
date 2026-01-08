@@ -14,6 +14,21 @@
 
 2026년 1월 8일 22:45:23
 
+### Approach
+
+- 처음에는 매 질문마다 palindrome 검사 → N/2 * 1,000,000 = $10^9$ : 시간초과
+- C++ 0.5초: 연산 $10^8$ 번 이하
+
+<img src="https://github.com/user-attachments/assets/efae317d-3c4d-451d-8ea1-459cda24d14a" width="400">
+
+- DP
+    - `dp[s][e]`: s-e 구간 palindrome 검사
+    - transition: `dp[s][e] = (num[s] == num[e]) && dp[s+1][e-1]`
+    - 연산 O(N*N): 약 $10^6$
+
+### Pitfalls
+- 출력에서 `endl`때문에 시간 초과 → `'\n'으로 수정
+
 ### 문제 설명
 
 <p>명우는 홍준이와 함께 팰린드롬 놀이를 해보려고 한다.</p>
